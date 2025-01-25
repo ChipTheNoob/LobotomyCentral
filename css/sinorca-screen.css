@@ -44,7 +44,11 @@ acronym, .titleTip {
   color: white;
   background-color: rgb(100,135,220);
   height: 2em;
-  position: relative;  /* Ensure it stays in place and doesn’t shift */
+  position: fixed; /* Fix it to the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Make sure it's above everything else */
   margin: 0; /* Reset margin */
   padding: 0; /* Reset padding */
 }
@@ -68,6 +72,11 @@ acronym, .titleTip {
   position: absolute;
   right: 1.5mm;
   top: 0.75ex;
+}
+
+/* Add padding-top to body to prevent content from being covered */
+body {
+  padding-top: 2em; /* This is to account for the superHeader height */
 }
 
 .midHeader {
@@ -122,6 +131,7 @@ acronym, .titleTip {
   float: left;
   clear: left;
   border-right: 1px solid rgb(153,153,153);
+  margin-top: 2em; /* Prevents overlap with the fixed superHeader */
 }
 
 #side-bar div {
@@ -187,7 +197,6 @@ acronym, .titleTip {
   color: rgb(0,102,204);
   background-color: transparent;
   text-decoration: none;
-
 }
 
 .lighterBackground {
@@ -206,6 +215,7 @@ acronym, .titleTip {
   margin: 0 0 0 15em;
   padding: 0.5mm 5mm 5mm 5mm;
   border-left: 1px solid rgb(153,153,153);
+  margin-top: 2em; /* Ensure it's not overlapped by the header */
 }
 
 #main-copy p {
@@ -294,7 +304,6 @@ dd {
 
 #footer a:hover {
   text-decoration: none;
-}
 
 /* Fix for the image-button styles in the header */
 .image-button {
