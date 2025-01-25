@@ -287,3 +287,21 @@ dd {
 #footer a:hover {
   text-decoration: none;
 }
+/* Fix for the image-button styles in the header */
+.image-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.image-button img {
+    vertical-align: middle; /* Aligns the image with the text */
+    width: 15px;
+    height: 15px;
+    transition: transform 0.3s ease;
+}
+
+.image-button:hover img {
+    transform: scale(1.2);
+}
