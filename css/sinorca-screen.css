@@ -297,8 +297,8 @@ dd {
 
 .image-button img {
     vertical-align: middle; /* Aligns the image with the text */
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -306,15 +306,19 @@ dd {
     transform: scale(1.2);
 }
 .midHeader {
-  display: block; /* Make sure it's not floated or absolutely positioned */
+  display: block;
   color: rgb(39,78,144);
   background-color: rgb(140,170,230);
-  padding: 10px; /* Adjust padding if needed */
+  padding: 10px;
+  overflow: hidden; /* Prevents overflow if elements get too large */
+  max-width: 100%; /* Ensures it doesn't exceed the viewport width */
 }
-
 .headerTitle {
-  font-size: 337%;
+  font-size: 250%;  /* Reduced font size to fit better */
   font-weight: normal;
   margin: 0 0 0 4mm;
   padding: 0.25ex 0;
+  white-space: nowrap; /* Prevents title from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis if the title is too long */
 }
