@@ -297,8 +297,8 @@ dd {
 
 .image-button img {
     vertical-align: middle; /* Aligns the image with the text */
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     transition: transform 0.3s ease;
 }
 
