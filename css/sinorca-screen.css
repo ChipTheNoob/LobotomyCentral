@@ -39,10 +39,14 @@ acronym, .titleTip {
 
 /* ##### Header ##### */
 
+/* Reset superHeader to ensure it stays at the top */
 .superHeader {
   color: white;
   background-color: rgb(100,135,220);
   height: 2em;
+  position: relative;  /* Ensure it stays in place and doesn’t shift */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
 }
 
 .superHeader a {
@@ -52,10 +56,6 @@ acronym, .titleTip {
   font-size: 91%;
   margin: 0;
   padding: 0 0.5ex 0 0.25ex;
-}
-
-.superHeader a:hover {
-  text-decoration: underline;
 }
 
 .superHeader .left {
@@ -122,8 +122,6 @@ acronym, .titleTip {
   float: left;
   clear: left;
   border-right: 1px solid rgb(153,153,153);
-  position: relative; /* Align sidebar content */
-  margin-top: 0; /* Prevent any unintended margin causing a shift */
 }
 
 #side-bar div {
@@ -205,10 +203,9 @@ acronym, .titleTip {
   background-color: white;
   text-align: justify;
   line-height: 1.5em;
-  margin-left: 15em; /* Keep space for the sidebar */
+  margin: 0 0 0 15em;
   padding: 0.5mm 5mm 5mm 5mm;
   border-left: 1px solid rgb(153,153,153);
-  position: relative; /* Ensures it's aligned with other elements */
 }
 
 #main-copy p {
@@ -316,4 +313,24 @@ dd {
 
 .image-button:hover img {
     transform: scale(1.2);
+}
+
+/* Reset styles on .midHeader */
+.midHeader {
+  color: rgb(39,78,144);
+  background-color: rgb(140,170,230);
+  padding: 5px 10px;  /* Adjust padding to ensure it fits within the layout */
+  margin: 0;  /* Make sure there's no unintended margin causing a shift */
+  display: inline-block;  /* Ensures it behaves like an inline element but with block-level control */
+  width: 100%;  /* Ensures the header spans the full width of its container */
+}
+
+.headerTitle {
+  font-size: 250%;  /* Adjusted for better fit */
+  font-weight: normal;
+  margin: 0;
+  padding: 0.25ex 0;
+  white-space: nowrap;  /* Prevents title from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis if the title is too long */
 }
