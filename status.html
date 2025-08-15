@@ -1,1 +1,27 @@
+<head>
+  <style>
+    body {
+      background-color: #212121;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <strong>MCJE Server Status:</strong> <span id="mc-status">Checking...</span>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      async function checkMC() {
+        try {
+          const res = await fetch("https://api.mcsrvstat.us/2/mcje.lobotomycentral.net");
+          const data = await res.json();
+          document.getElementById("mc-status").textContent = data.online ? "ONLINE ✅" : "OFFLINE ❌";
+        } catch {
+          document.getElementById("mc-status").textContent = "ERROR ❌";
+        }
+      }
+      checkMC();
+      setInterval(checkMC, 30000);
+    });
+  </script>
+</body>
