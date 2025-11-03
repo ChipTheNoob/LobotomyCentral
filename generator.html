@@ -1,1 +1,86 @@
-temp
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random §k Generator</title>
+<style>
+    body {
+        background-color: #212121;
+        color: white;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    #randomString {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #333;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        user-select: all;
+        transition: background-color 0.2s;
+    }
+
+    #randomString:hover {
+        background-color: #444;
+    }
+
+    button {
+        position: fixed;
+        top: 50px;
+        left: 10px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: #555;
+        color: white;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body>
+
+<div id="randomString">Click "Generate" to create</div>
+<button onclick="generateRandom()">Generate</button>
+
+<script>
+function generateRandom() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]|:;<>,.?/';
+    let result = '§k';
+    for (let i = 0; i < 8; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById('randomString').textContent = result;
+}
+
+// Copy to clipboard fallback (for iframes)
+document.getElementById('randomString').addEventListener('click', function() {
+    const text = this.textContent;
+
+    // Creates temporary textarea
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        this.textContent = 'Copied! ' + text;
+        setTimeout(() => {
+            this.textContent = text;
+        }, 1000);
+    } catch (err) {
+        alert('Copy failed. Please copy manually.');
+    }
+    document.body.removeChild(textarea);
+});
+</script>
+
+</body>
+</html>
